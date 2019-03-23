@@ -1,3 +1,5 @@
+package lsystem;
+
 public class FractalBinaryTreeCommands {
     private String string;
 
