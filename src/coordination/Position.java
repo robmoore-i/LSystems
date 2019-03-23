@@ -9,10 +9,6 @@ public class Position {
         this.y = y;
     }
 
-    public Position northward() {
-        return new Position(this.x, this.y + 1);
-    }
-
     public Position advanceIn(Direction direction) {
         return new Position(this.x + direction.dx(), this.y + direction.dy());
     }

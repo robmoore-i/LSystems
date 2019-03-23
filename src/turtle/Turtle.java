@@ -4,6 +4,7 @@ import canvas.Canvas;
 import coordination.Direction;
 import coordination.North;
 import coordination.Position;
+import lsystem.TurtleStartingPositionCalculator;
 
 public class Turtle {
     private Canvas canvas;
@@ -11,9 +12,9 @@ public class Turtle {
     private Direction direction;
     private TurtleStateStack stateStack;
 
-    public Turtle(Canvas canvas) {
+    public Turtle(Canvas canvas, TurtleStartingPositionCalculator turtleStartingPositionCalculator) {
         this.canvas = canvas;
-        this.position = canvas.middleBottom();
+        this.position = turtleStartingPositionCalculator.startingPosition(canvas);
         this.direction = new North();
         this.stateStack = new TurtleStateStack();
     }

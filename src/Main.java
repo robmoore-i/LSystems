@@ -1,8 +1,8 @@
-import lsystem.FractalBinaryTree;
+import lsystem.DragonCurve;
 
 public class Main {
     public static void main(String[] args) {
-        String fractalTree = new FractalBinaryTree().draw(4);
+        String fractalTree = new DragonCurve().draw(10);
         System.out.println(fractalTree);
     }
 }

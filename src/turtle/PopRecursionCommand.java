@@ -1,6 +1,6 @@
 package turtle;
 
-public class PopRecursionCommand extends TurtleCommand {
+public class PopRecursionCommand implements TurtleCommand {
     @Override
     public void transform(Turtle turtle) {
         turtle.drawCurrentState();

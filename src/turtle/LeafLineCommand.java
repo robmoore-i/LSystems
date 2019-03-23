@@ -1,6 +1,6 @@
 package turtle;
 
-public class LeafLineCommand extends TurtleCommand {
+public class LeafLineCommand implements TurtleCommand {
     @Override
     public void transform(Turtle turtle) {
         turtle.drawForward();

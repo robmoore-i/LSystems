@@ -1,6 +1,7 @@
 import canvas.Canvas;
 import coordination.Arrows;
 import coordination.North;
+import lsystem.FractalBinaryTreeStartingPositionCalculator;
 import org.junit.Test;
 import turtle.*;
 
@@ -11,7 +12,7 @@ public class TurtleTest {
     @Test
     public void startsMiddleBottomOfCanvasFacingNorthForMaxSize5() {
         Canvas canvas = new Canvas(5);
-        Turtle turtle = new Turtle(canvas);
+        Turtle turtle = new Turtle(canvas, new FractalBinaryTreeStartingPositionCalculator());
 
         TurtleState state = turtle.state();
         assertThat(state.position.x, equalTo(2));
@@ -22,7 +23,7 @@ public class TurtleTest {
     @Test
     public void startsMiddleBottomOfCanvasFacingNorthForMaxSize3() {
         Canvas canvas = new Canvas(3);
-        Turtle turtle = new Turtle(canvas);
+        Turtle turtle = new Turtle(canvas, new FractalBinaryTreeStartingPositionCalculator());
 
         TurtleState state = turtle.state();
         assertThat(state.position.x, equalTo(1));
@@ -33,7 +34,7 @@ public class TurtleTest {
     @Test
     public void executingLineCommandDrawsForwardsOnTheCanvas() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas);
+        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
         turtle.execute(new LineCommand());
 
         String canvas = turtleCanvas.draw();
@@ -43,7 +44,7 @@ public class TurtleTest {
     @Test
     public void executingPushRecursionCommandTurnsLeft() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas);
+        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
         turtle.execute(new PushRecursionCommand());
         turtle.execute(new LineCommand());
 
@@ -54,7 +55,7 @@ public class TurtleTest {
     @Test
     public void executingPushAndPopCommandsRecursesTheTurtlePosition() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas);
+        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
         turtle.execute(new PushRecursionCommand());
         turtle.execute(new LineCommand());
         turtle.execute(new PopRecursionCommand());

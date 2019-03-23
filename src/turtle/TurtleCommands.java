@@ -1,18 +1,22 @@
 package turtle;
 
+import lsystem.TurtleCommandInterpreter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TurtleCommands {
     private final char[] chars;
+    private TurtleCommandInterpreter turtleCommandInterpreter;
     private final List<TurtleCommand> commands;
 
-    public TurtleCommands(char[] chars) {
+    public TurtleCommands(char[] chars, TurtleCommandInterpreter turtleCommandInterpreter) {
         this.chars = chars;
+        this.turtleCommandInterpreter = turtleCommandInterpreter;
 
         List<TurtleCommand> commands = new ArrayList<>();
         for (char c : chars) {
-            commands.add(TurtleCommand.fromChar(c));
+            commands.add(turtleCommandInterpreter.fromChar(c));
         }
         this.commands = commands;
     }
@@ -20,7 +24,7 @@ public class TurtleCommands {
     public int countMovementInstructions() {
         int sum = 0;
         for (char c : chars) {
-            if (c == '1' || c == '0') {
+            if (turtleCommandInterpreter.isMovementCommand(c)) {
                 sum += 1;
             }
         }
@@ -28,6 +32,15 @@ public class TurtleCommands {
     }
 
     public Iterable<TurtleCommand> instructions() {
-        return this.commands;
+        return commands;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder().append("[\n");
+        for (TurtleCommand command : commands) {
+            result.append(command.toString()).append("\n");
+        }
+        return result.append("]").toString();
     }
 }

@@ -27,10 +27,6 @@ public class Canvas {
         this.maxIndex = maxSize - 1;
     }
 
-    public Position middleBottom() {
-        return new Position(maxSize / 2, 0);
-    }
-
     public String draw() {
         return this.rows.toString();
     }
@@ -39,5 +35,13 @@ public class Canvas {
         int row = maxIndex - position.y;
         int column = position.x;
         this.rows.write(c, row, column);
+    }
+
+    public Position middleBottom() {
+        return new Position(maxSize / 2, 0);
+    }
+
+    public Position central() {
+        return new Position(maxSize / 2, maxSize / 2);
     }
 }
