@@ -1,10 +1,10 @@
+package turtle;
+
 import canvas.Canvas;
 import coordination.Arrows;
 import coordination.North;
 import lsystem.fractalbinarytree.FractalBinaryTreeStartingPositionCalculator;
 import org.junit.Test;
-import turtle.Turtle;
-import turtle.TurtleState;
 import turtlecommands.LineCommand;
 import turtlecommands.PopRecursionCommand;
 import turtlecommands.PushRecursionCommand;

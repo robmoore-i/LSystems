@@ -1,3 +1,5 @@
+package lsystem;
+
 import coordination.Arrows;
 import lsystem.fractalbinarytree.FractalBinaryTree;
 import org.junit.Test;

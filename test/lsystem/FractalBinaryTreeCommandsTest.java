@@ -1,3 +1,5 @@
+package lsystem;
+
 import lsystem.fractalbinarytree.FractalBinaryTreeCommands;
 import org.junit.Test;
 

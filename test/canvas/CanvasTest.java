@@ -1,4 +1,5 @@
-import canvas.Canvas;
+package canvas;
+
 import coordination.Position;
 import org.junit.Test;
 
