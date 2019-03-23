@@ -38,7 +38,7 @@ public class TurtleTest {
         turtle.execute(new LineCommand());
 
         String canvas = turtleCanvas.draw();
-        assertThat(canvas, equalTo(" " + Arrows.NORTH + " \n"));
+        assertThat(canvas, equalTo(Arrows.NORTH + "\n"));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class TurtleTest {
         turtle.execute(new LineCommand());
 
         String canvas = turtleCanvas.draw();
-        assertThat(canvas, equalTo(Arrows.NORTH_WEST + "  \n " + Arrows.NORTH + " \n"));
+        assertThat(canvas, equalTo(Arrows.NORTH_WEST + " \n " + Arrows.NORTH + "\n"));
     }
 
     @Test

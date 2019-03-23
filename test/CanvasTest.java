@@ -1,9 +1,9 @@
+import canvas.Canvas;
 import coordination.Position;
 import org.junit.Test;
-import canvas.Canvas;
 
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class CanvasTest {
     @Test
@@ -13,7 +13,7 @@ public class CanvasTest {
         turtleCanvas.put('x', new Position(2, 0));
 
         String canvas = turtleCanvas.draw();
-        assertThat(canvas, equalTo("  x\n"));
+        assertThat(canvas, equalTo("x\n"));
     }
 
     @Test
@@ -24,6 +24,6 @@ public class CanvasTest {
         turtleCanvas.put('x', new Position(1, 1));
 
         String canvas = turtleCanvas.draw();
-        assertThat(canvas, equalTo(" x \n x \n"));
+        assertThat(canvas, equalTo("x\nx\n"));
     }
 }

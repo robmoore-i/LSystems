@@ -10,7 +10,7 @@ public class FractalBinaryTreeTest {
     public void canDrawFractalTreeIteration1() {
         String fractalTree = new FractalBinaryTree().draw(0);
 
-        assertThat(fractalTree, equalTo(" " + Arrows.NORTH + " \n"));
+        assertThat(fractalTree, equalTo(Arrows.NORTH + "\n"));
     }
 
     @Test
