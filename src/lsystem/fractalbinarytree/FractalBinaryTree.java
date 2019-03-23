@@ -4,7 +4,7 @@ import lsystem.InterpretedLSystem;
 import lsystem.LSystem;
 
 public class FractalBinaryTree implements LSystem {
-    public static final LSystem FRACTAL_BINARY_TREE = new InterpretedLSystem(
+    private static final LSystem FRACTAL_BINARY_TREE = new InterpretedLSystem(
             new FractalBinaryTreeCommandsBuilder(),
             new FractalBinaryTreeCommandInterpreter(),
             new FractalBinaryTreeStartingPositionCalculator());
