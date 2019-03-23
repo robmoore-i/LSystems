@@ -3,6 +3,7 @@ public class FractalBinaryTreeCommands {
 
     public FractalBinaryTreeCommands(int i) {
         String string = "0";
+
         for (int j = 0; j < i; j++) {
             StringBuilder nextIteration = new StringBuilder();
 

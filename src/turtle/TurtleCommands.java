@@ -11,16 +11,16 @@ public class TurtleCommands {
         this.chars = chars;
 
         List<TurtleCommand> commands = new ArrayList<>();
-        for (char aChar : chars) {
-            commands.add(TurtleCommand.fromChar(aChar));
+        for (char c : chars) {
+            commands.add(TurtleCommand.fromChar(c));
         }
         this.commands = commands;
     }
 
     public int countMovementInstructions() {
         int sum = 0;
-        for (char aChar : chars) {
-            if (aChar == '1' || aChar == '0') {
+        for (char c : chars) {
+            if (c == '1' || c == '0') {
                 sum += 1;
             }
         }
