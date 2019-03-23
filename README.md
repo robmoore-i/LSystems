@@ -15,6 +15,4 @@ you not like, etc.
 
 ## Tasks
 
-1. Implement the functionality required to build the commands for the "Dragon Curve" recursively.
-
-2. Create an implementation of the LSystem interface to draw dragon curves.
+I don't really know exactly what the scope of the stuff we'll do will be yet. Need to do some testing.
