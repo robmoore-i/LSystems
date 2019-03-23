@@ -1,3 +1,4 @@
+import coordination.Arrows;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -10,6 +11,15 @@ public class LSystemTest {
 
         String fractalTree = new LSystem().drawFractalTree(input);
 
-        assertThat(fractalTree, equalTo(Arrows.NORTH));
+        assertThat(fractalTree, equalTo(" " + Arrows.NORTH + " \n"));
+    }
+
+    @Test
+    public void canDrawFractalTreeIteration2() {
+        String input = "1[0]0";
+
+        String fractalTree = new LSystem().drawFractalTree(input);
+
+        assertThat(fractalTree, equalTo(Arrows.NORTH_WEST + " " + Arrows.NORTH_EAST + "\n " + Arrows.NORTH + " \n"));
     }
 }
