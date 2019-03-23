@@ -1,4 +1,4 @@
-package lsystem;
+package turtle;
 
 import canvas.Canvas;
 import coordination.Position;

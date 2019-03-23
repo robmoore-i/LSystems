@@ -2,6 +2,7 @@ package lsystem;
 
 import canvas.Canvas;
 import coordination.Position;
+import turtle.TurtleStartingPositionCalculator;
 
 public class FractalBinaryTreeStartingPositionCalculator implements TurtleStartingPositionCalculator {
     @Override

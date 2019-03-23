@@ -1,7 +1,4 @@
-package lsystem;
-
-import turtle.Turtle;
-import turtle.TurtleCommand;
+package turtle;
 
 public class RightCommand implements TurtleCommand {
     @Override

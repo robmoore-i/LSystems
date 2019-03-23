@@ -4,7 +4,6 @@ import canvas.Canvas;
 import coordination.Direction;
 import coordination.North;
 import coordination.Position;
-import lsystem.TurtleStartingPositionCalculator;
 
 public class Turtle {
     private Canvas canvas;

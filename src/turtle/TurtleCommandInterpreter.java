@@ -1,6 +1,4 @@
-package lsystem;
-
-import turtle.TurtleCommand;
+package turtle;
 
 public interface TurtleCommandInterpreter {
     TurtleCommand fromChar(char c);

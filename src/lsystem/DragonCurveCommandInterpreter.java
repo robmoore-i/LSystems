@@ -1,7 +1,6 @@
 package lsystem;
 
-import turtle.LineCommand;
-import turtle.TurtleCommand;
+import turtle.*;
 
 public class DragonCurveCommandInterpreter implements TurtleCommandInterpreter {
     @Override
