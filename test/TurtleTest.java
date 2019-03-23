@@ -1,9 +1,13 @@
 import canvas.Canvas;
 import coordination.Arrows;
 import coordination.North;
-import lsystem.FractalBinaryTreeStartingPositionCalculator;
+import lsystem.fractalbinarytree.FractalBinaryTreeStartingPositionCalculator;
 import org.junit.Test;
-import turtle.*;
+import turtle.Turtle;
+import turtle.TurtleState;
+import turtlecommands.LineCommand;
+import turtlecommands.PopRecursionCommand;
+import turtlecommands.PushRecursionCommand;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;

@@ -1,4 +1,6 @@
-package turtle;
+package turtlecommands;
+
+import turtle.Turtle;
 
 public class PushRecursionCommand implements TurtleCommand {
     @Override
@@ -10,6 +12,6 @@ public class PushRecursionCommand implements TurtleCommand {
 
     @Override
     public String toString() {
-        return "turtle.PushRecursionCommand{}";
+        return "turtlecommands.PushRecursionCommand{}";
     }
 }

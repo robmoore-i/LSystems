@@ -1,5 +1,5 @@
 import coordination.Arrows;
-import lsystem.FractalBinaryTree;
+import lsystem.fractalbinarytree.FractalBinaryTree;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

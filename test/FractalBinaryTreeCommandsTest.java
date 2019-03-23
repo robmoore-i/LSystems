@@ -1,4 +1,4 @@
-import lsystem.FractalBinaryTreeCommands;
+import lsystem.fractalbinarytree.FractalBinaryTreeCommands;
 import org.junit.Test;
 
 import static org.hamcrest.core.IsEqual.equalTo;

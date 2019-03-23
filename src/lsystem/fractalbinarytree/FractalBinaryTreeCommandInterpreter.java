@@ -1,6 +1,6 @@
-package lsystem;
+package lsystem.fractalbinarytree;
 
-import turtle.*;
+import turtlecommands.*;
 
 public class FractalBinaryTreeCommandInterpreter implements TurtleCommandInterpreter {
     @Override

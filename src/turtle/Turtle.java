@@ -4,6 +4,7 @@ import canvas.Canvas;
 import coordination.Direction;
 import coordination.North;
 import coordination.Position;
+import turtlecommands.TurtleCommand;
 
 public class Turtle {
     private Canvas canvas;

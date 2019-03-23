@@ -1,6 +1,8 @@
-package turtle;
+package turtlecommands;
 
-public class LeafLineCommand implements TurtleCommand {
+import turtle.Turtle;
+
+public class LineCommand implements TurtleCommand {
     @Override
     public void transform(Turtle turtle) {
         turtle.drawForward();
@@ -8,6 +10,6 @@ public class LeafLineCommand implements TurtleCommand {
 
     @Override
     public String toString() {
-        return "turtle.LeafLineCommand{}";
+        return "turtlecommands.LineCommand{}";
     }
 }

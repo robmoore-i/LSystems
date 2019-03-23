@@ -1,9 +1,10 @@
-package lsystem;
+package lsystem.fractalbinarytree;
 
 import canvas.Canvas;
+import lsystem.LSystem;
 import turtle.Turtle;
-import turtle.TurtleCommand;
-import turtle.TurtleCommands;
+import turtlecommands.TurtleCommand;
+import turtlecommands.TurtleCommands;
 
 public class FractalBinaryTree implements LSystem {
     public String draw(int numberOfRecursions) {

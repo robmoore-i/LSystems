@@ -1,4 +1,6 @@
-package turtle;
+package turtlecommands;
+
+import turtle.Turtle;
 
 public class RightCommand implements TurtleCommand {
     @Override

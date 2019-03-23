@@ -1,4 +1,4 @@
-package turtle;
+package turtlecommands;
 
 public interface TurtleCommandInterpreter {
     TurtleCommand fromChar(char c);

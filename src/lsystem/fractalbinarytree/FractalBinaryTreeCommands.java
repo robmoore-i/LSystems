@@ -1,19 +1,19 @@
-package lsystem;
+package lsystem.fractalbinarytree;
 
-public class DragonCurveCommands {
+public class FractalBinaryTreeCommands {
     private final String string;
 
-    public DragonCurveCommands(int i) {
-        String string = "FX";
+    public FractalBinaryTreeCommands(int i) {
+        String string = "0";
 
         for (int j = 0; j < i; j++) {
             StringBuilder nextIteration = new StringBuilder();
 
             for (char c : string.toCharArray()) {
-                if (c == 'X') {
-                    nextIteration.append("X+YF+");
-                } else if (c == 'Y') {
-                    nextIteration.append("-FX-Y");
+                if (c == '0') {
+                    nextIteration.append("1[0]0");
+                } else if (c == '1') {
+                    nextIteration.append("11");
                 } else {
                     nextIteration.append(c);
                 }
@@ -27,10 +27,6 @@ public class DragonCurveCommands {
 
     @Override
     public String toString() {
-        return this.string.replace("X", "").replace("Y", "");
-    }
-
-    public String commands() {
         return this.string;
     }
 }

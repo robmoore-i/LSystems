@@ -1,6 +1,6 @@
-import lsystem.FractalBinaryTreeCommandInterpreter;
+import lsystem.fractalbinarytree.FractalBinaryTreeCommandInterpreter;
 import org.junit.Test;
-import turtle.TurtleCommands;
+import turtlecommands.TurtleCommands;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
