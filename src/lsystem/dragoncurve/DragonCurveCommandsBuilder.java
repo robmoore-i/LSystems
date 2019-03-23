@@ -1,12 +1,20 @@
 package lsystem.dragoncurve;
 
-public class DragonCurveCommands {
-    private final String string;
+import lsystem.LSystemCommandsBuilder;
 
-    public DragonCurveCommands(int i) {
+public class DragonCurveCommandsBuilder implements LSystemCommandsBuilder {
+    private String string;
+
+    public String commands(int numberOfRecursions) {
+        withNumberOfRecursions(numberOfRecursions);
+        return this.string;
+    }
+
+    @Override
+    public String withNumberOfRecursions(int numberOfRecursions) {
         String string = "FX";
 
-        for (int j = 0; j < i; j++) {
+        for (int i = 0; i < numberOfRecursions; i++) {
             StringBuilder nextIteration = new StringBuilder();
 
             for (char c : string.toCharArray()) {
@@ -23,14 +31,6 @@ public class DragonCurveCommands {
         }
 
         this.string = string;
-    }
-
-    @Override
-    public String toString() {
-        return this.string.replace("X", "").replace("Y", "");
-    }
-
-    public String commands() {
-        return this.string;
+        return string.replace("X", "").replace("Y", "");
     }
 }

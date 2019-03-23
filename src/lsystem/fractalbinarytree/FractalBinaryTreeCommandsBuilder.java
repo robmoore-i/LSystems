@@ -1,12 +1,13 @@
 package lsystem.fractalbinarytree;
 
-public class FractalBinaryTreeCommands {
-    private final String string;
+import lsystem.LSystemCommandsBuilder;
 
-    public FractalBinaryTreeCommands(int i) {
+public class FractalBinaryTreeCommandsBuilder implements LSystemCommandsBuilder {
+    @Override
+    public String withNumberOfRecursions(int numberOfRecursions) {
         String string = "0";
 
-        for (int j = 0; j < i; j++) {
+        for (int i = 0; i < numberOfRecursions; i++) {
             StringBuilder nextIteration = new StringBuilder();
 
             for (char c : string.toCharArray()) {
@@ -22,11 +23,6 @@ public class FractalBinaryTreeCommands {
             string = nextIteration.toString();
         }
 
-        this.string = string;
-    }
-
-    @Override
-    public String toString() {
-        return this.string;
+        return string;
     }
 }
