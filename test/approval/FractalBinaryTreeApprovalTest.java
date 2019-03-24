@@ -2,7 +2,7 @@ package approval;
 
 import lsystem.fractalbinarytree.FractalBinaryTree;
 
-public class FractalBinaryTreeApprovalTest extends LSystemTextOutputApprovalTest {
+public class FractalBinaryTreeApprovalTest extends LSystemApprovalTest {
     @Override
     String approvalFileUri() {
         return "testfiles/fractalBinaryTree5Recursions.txt";

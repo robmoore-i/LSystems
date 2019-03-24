@@ -2,7 +2,7 @@ package approval;
 
 import lsystem.dragoncurve.DragonCurve;
 
-public class DragonCurveApprovalTest extends LSystemTextOutputApprovalTest {
+public class DragonCurveApprovalTest extends LSystemApprovalTest {
     @Override
     public String approvalFileUri() {
         return "testfiles/dragonCurve10Recursions.txt";
