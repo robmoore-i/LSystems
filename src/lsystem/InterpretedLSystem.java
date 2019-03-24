@@ -22,10 +22,8 @@ public class InterpretedLSystem implements LSystem {
     public String draw(int numberOfRecursions) {
         String input = lSystemCommandsBuilder.withNumberOfRecursions(numberOfRecursions);
         TurtleCommands commands = new TurtleCommands(input.toCharArray(), turtleCommandInterpreter);
-        int canvasSize = upperBoundOfRequiredCanvasSize(commands);
-
-        Canvas canvas = new Canvas(canvasSize);
-        Turtle turtle = new Turtle(canvas, turtleStartingPositionCalculator);
+        Canvas canvas = new Canvas(upperBoundOfRequiredCanvasSize(commands));
+        Turtle turtle = new Turtle(canvas, turtleStartingPositionCalculator.startingPosition(canvas));
         for (TurtleCommand command : commands.instructions()) {
             command.executeOn(turtle);
         }

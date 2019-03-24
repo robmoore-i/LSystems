@@ -11,9 +11,9 @@ public class Turtle {
     private Direction direction;
     private TurtleStateStack stateStack;
 
-    public Turtle(Canvas canvas, TurtleStartingPositionCalculator turtleStartingPositionCalculator) {
+    public Turtle(Canvas canvas, Position startingPosition) {
         this.canvas = canvas;
-        this.position = turtleStartingPositionCalculator.startingPosition(canvas);
+        this.position = startingPosition;
         this.direction = new North();
         this.stateStack = new TurtleStateStack();
     }

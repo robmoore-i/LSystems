@@ -3,7 +3,7 @@ package turtle;
 import canvas.Canvas;
 import coordination.Arrows;
 import coordination.North;
-import lsystem.fractalbinarytree.FractalBinaryTreeStartingPositionCalculator;
+import coordination.Position;
 import org.junit.Test;
 import turtlecommands.LineCommand;
 import turtlecommands.PopRecursionCommand;
@@ -14,9 +14,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class TurtleCommandTest {
     @Test
-    public void startsMiddleBottomOfCanvasFacingNorthForMaxSize5() {
+    public void startsWhereItsTold() {
         Canvas canvas = new Canvas(5);
-        Turtle turtle = new Turtle(canvas, new FractalBinaryTreeStartingPositionCalculator());
+        Turtle turtle = new Turtle(canvas, new Position(2, 0));
 
         TurtleState state = turtle.state();
         assertThat(state.position.x, equalTo(2));
@@ -27,7 +27,7 @@ public class TurtleCommandTest {
     @Test
     public void startsMiddleBottomOfCanvasFacingNorthForMaxSize3() {
         Canvas canvas = new Canvas(3);
-        Turtle turtle = new Turtle(canvas, new FractalBinaryTreeStartingPositionCalculator());
+        Turtle turtle = new Turtle(canvas, new Position(1, 0));
 
         TurtleState state = turtle.state();
         assertThat(state.position.x, equalTo(1));
@@ -38,7 +38,7 @@ public class TurtleCommandTest {
     @Test
     public void executingLineCommandDrawsForwardsOnTheCanvas() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
+        Turtle turtle = new Turtle(turtleCanvas, new Position(1, 0));
         new LineCommand().executeOn(turtle);
 
         String canvas = turtleCanvas.draw();
@@ -48,7 +48,7 @@ public class TurtleCommandTest {
     @Test
     public void executingPushRecursionCommandTurnsLeft() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
+        Turtle turtle = new Turtle(turtleCanvas, new Position(1, 0));
         new PushRecursionCommand().executeOn(turtle);
         new LineCommand().executeOn(turtle);
 
@@ -59,7 +59,7 @@ public class TurtleCommandTest {
     @Test
     public void executingPushAndPopCommandsRecursesTheTurtlePosition() {
         Canvas turtleCanvas = new Canvas(3);
-        Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
+        Turtle turtle = new Turtle(turtleCanvas, new Position(1, 0));
 
         new PushRecursionCommand().executeOn(turtle);
         new LineCommand().executeOn(turtle);
