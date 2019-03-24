@@ -2,7 +2,7 @@ package approval;
 
 import lsystem.kochcurve.KochCurve;
 
-public class KochCurveApprovalTest extends LSystemApprovalTest {
+public class KochCurveApprovalTest extends LSystemTextOutputApprovalTest {
     @Override
     String approvalFileUri() {
         return "testfiles/kochcurve4Recursions.txt";
