@@ -6,25 +6,25 @@ import java.util.ArrayList;
 
 public class Canvas {
     private final CanvasRows rows;
-    private final int maxSize;
+    private final int size;
     private final int maxIndex;
 
-    public Canvas(int maxSize) {
-        this.maxSize = maxSize;
+    public Canvas(int size) {
+        this.size = size;
 
         StringBuilder rowBuilder = new StringBuilder();
-        for (int i = 0; i < maxSize; i++) {
+        for (int i = 0; i < size; i++) {
             rowBuilder.append(" ");
         }
         String emptyRow = rowBuilder.toString();
 
         ArrayList<String> rows = new ArrayList<>();
-        for (int i = 0; i < maxSize; i++) {
+        for (int i = 0; i < size; i++) {
             rows.add(emptyRow);
         }
 
         this.rows = new CanvasRows(rows);
-        this.maxIndex = maxSize - 1;
+        this.maxIndex = size - 1;
     }
 
     public String draw() {
@@ -38,11 +38,11 @@ public class Canvas {
     }
 
     public Position middleBottom() {
-        return new Position(maxSize / 2, 0);
+        return new Position(size / 2, 0);
     }
 
     public Position central() {
-        return new Position(maxSize / 2, maxSize / 2);
+        return new Position(size / 2, size / 2);
     }
 
     public Position bottomRight() {
