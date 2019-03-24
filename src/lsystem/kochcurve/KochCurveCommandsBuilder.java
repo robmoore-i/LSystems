@@ -1,19 +1,17 @@
-package lsystem.fractalbinarytree;
+package lsystem.kochcurve;
 
 import lsystem.IterativeCommandsBuilder;
 
-public class FractalBinaryTreeCommandsBuilder extends IterativeCommandsBuilder {
+public class KochCurveCommandsBuilder extends IterativeCommandsBuilder {
     @Override
     public String axiom() {
-        return "0";
+        return "F";
     }
 
     @Override
     public String applyRecursionRules(char c) {
-        if (c == '0') {
-            return "1[0]0";
-        } else if (c == '1') {
-            return "11";
+        if (c == 'F') {
+            return "F+F-F-F+F";
         } else {
             return String.valueOf(c);
         }

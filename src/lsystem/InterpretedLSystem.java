@@ -7,27 +7,21 @@ import turtlecommands.TurtleCommand;
 import turtlecommands.TurtleCommandInterpreter;
 import turtlecommands.TurtleCommands;
 
-public class InterpretedLSystem implements LSystem {
-    private final LSystemCommandsBuilder lSystemCommandsBuilder;
-    private final TurtleCommandInterpreter turtleCommandInterpreter;
-    private final TurtleStartingPositionCalculator turtleStartingPositionCalculator;
+public abstract class InterpretedLSystem implements LSystem {
+    public abstract TurtleStartingPositionCalculator turtleStartingPositionCalculator();
 
-    public InterpretedLSystem(LSystemCommandsBuilder lSystemCommandsBuilder,
-                              TurtleCommandInterpreter turtleCommandInterpreter,
-                              TurtleStartingPositionCalculator turtleStartingPositionCalculator) {
-        this.lSystemCommandsBuilder = lSystemCommandsBuilder;
-        this.turtleCommandInterpreter = turtleCommandInterpreter;
-        this.turtleStartingPositionCalculator = turtleStartingPositionCalculator;
-    }
+    public abstract TurtleCommandInterpreter turtleCommandInterpreter();
+
+    public abstract LSystemCommandsBuilder lSystemCommandsBuilder();
 
     @Override
     public String draw(int numberOfRecursions) {
-        String input = lSystemCommandsBuilder.withNumberOfRecursions(numberOfRecursions);
-        TurtleCommands commands = new TurtleCommands(input.toCharArray(), turtleCommandInterpreter);
+        String input = lSystemCommandsBuilder().withNumberOfRecursions(numberOfRecursions);
+        TurtleCommands commands = new TurtleCommands(input.toCharArray(), turtleCommandInterpreter());
         int maxSize = maxCanvasSize(commands);
 
         Canvas canvas = new Canvas(maxSize);
-        Turtle turtle = new Turtle(canvas, turtleStartingPositionCalculator);
+        Turtle turtle = new Turtle(canvas, turtleStartingPositionCalculator());
         for (TurtleCommand command : commands.instructions()) {
             turtle.execute(command);
         }

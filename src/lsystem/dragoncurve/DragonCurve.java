@@ -1,15 +1,23 @@
 package lsystem.dragoncurve;
 
 import lsystem.InterpretedLSystem;
-import lsystem.LSystem;
+import lsystem.LSystemCommandsBuilder;
+import turtle.TurtleStartingPositionCalculator;
+import turtlecommands.TurtleCommandInterpreter;
 
-public class DragonCurve implements LSystem {
-    private static final LSystem DRAGON_CURVE = new InterpretedLSystem(
-            new DragonCurveCommandsBuilder(),
-            new DragonCurveCommandInterpreter(),
-            new DragonCurveStartingPositionCalculator());
+public class DragonCurve extends InterpretedLSystem {
+    @Override
+    public LSystemCommandsBuilder lSystemCommandsBuilder() {
+        return new DragonCurveCommandsBuilder();
+    }
 
-    public String draw(int numberOfRecursions) {
-        return DRAGON_CURVE.draw(numberOfRecursions);
+    @Override
+    public TurtleCommandInterpreter turtleCommandInterpreter() {
+        return new DragonCurveCommandInterpreter();
+    }
+
+    @Override
+    public TurtleStartingPositionCalculator turtleStartingPositionCalculator() {
+        return new DragonCurveStartingPositionCalculator();
     }
 }

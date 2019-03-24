@@ -44,4 +44,8 @@ public class Canvas {
     public Position central() {
         return new Position(maxSize / 2, maxSize / 2);
     }
+
+    public Position bottomRight() {
+        return new Position(maxIndex, 0);
+    }
 }
