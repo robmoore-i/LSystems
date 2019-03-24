@@ -1,23 +1,20 @@
 package lsystem.dragoncurve;
 
 import lsystem.InterpretedLSystem;
-import lsystem.LSystemCommandsBuilder;
-import turtle.TurtleStartingPositionCalculator;
-import turtlecommands.TurtleCommandInterpreter;
+import lsystem.LSystem;
 
-public class DragonCurve extends InterpretedLSystem {
-    @Override
-    public LSystemCommandsBuilder lSystemCommandsBuilder() {
-        return new DragonCurveCommandsBuilder();
+public class DragonCurve implements LSystem {
+    private InterpretedLSystem delegate;
+
+    public DragonCurve() {
+        this.delegate = new InterpretedLSystem(
+                new DragonCurveCommandsBuilder(),
+                new DragonCurveCommandInterpreter(),
+                new DragonCurveStartingPositionCalculator());
     }
 
     @Override
-    public TurtleCommandInterpreter turtleCommandInterpreter() {
-        return new DragonCurveCommandInterpreter();
-    }
-
-    @Override
-    public TurtleStartingPositionCalculator turtleStartingPositionCalculator() {
-        return new DragonCurveStartingPositionCalculator();
+    public String draw(int numberOfRecursions) {
+        return delegate.draw(numberOfRecursions);
     }
 }

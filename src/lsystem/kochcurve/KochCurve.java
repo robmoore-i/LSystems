@@ -1,23 +1,20 @@
 package lsystem.kochcurve;
 
 import lsystem.InterpretedLSystem;
-import lsystem.LSystemCommandsBuilder;
-import turtle.TurtleStartingPositionCalculator;
-import turtlecommands.TurtleCommandInterpreter;
+import lsystem.LSystem;
 
-public class KochCurve extends InterpretedLSystem {
-    @Override
-    public TurtleStartingPositionCalculator turtleStartingPositionCalculator() {
-        return new KochCurveStartingPositionCalculator();
+public class KochCurve implements LSystem {
+    private InterpretedLSystem delegate;
+
+    public KochCurve() {
+        this.delegate = new InterpretedLSystem(
+                new KochCurveCommandsBuilder(),
+                new KochCurveCommandInterpreter(),
+                new KochCurveStartingPositionCalculator());
     }
 
     @Override
-    public TurtleCommandInterpreter turtleCommandInterpreter() {
-        return new KochCurveCommandInterpreter();
-    }
-
-    @Override
-    public LSystemCommandsBuilder lSystemCommandsBuilder() {
-        return new KochCurveCommandsBuilder();
+    public String draw(int numberOfRecursions) {
+        return delegate.draw(numberOfRecursions);
     }
 }

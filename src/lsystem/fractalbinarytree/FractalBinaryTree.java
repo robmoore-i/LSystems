@@ -1,23 +1,20 @@
 package lsystem.fractalbinarytree;
 
 import lsystem.InterpretedLSystem;
-import lsystem.LSystemCommandsBuilder;
-import turtle.TurtleStartingPositionCalculator;
-import turtlecommands.TurtleCommandInterpreter;
+import lsystem.LSystem;
 
-public class FractalBinaryTree extends InterpretedLSystem {
-    @Override
-    public LSystemCommandsBuilder lSystemCommandsBuilder() {
-        return new FractalBinaryTreeCommandsBuilder();
+public class FractalBinaryTree implements LSystem {
+    private InterpretedLSystem delegate;
+
+    public FractalBinaryTree() {
+        this.delegate = new InterpretedLSystem(
+                new FractalBinaryTreeCommandsBuilder(),
+                new FractalBinaryTreeCommandInterpreter(),
+                new FractalBinaryTreeStartingPositionCalculator());
     }
 
     @Override
-    public TurtleCommandInterpreter turtleCommandInterpreter() {
-        return new FractalBinaryTreeCommandInterpreter();
-    }
-
-    @Override
-    public TurtleStartingPositionCalculator turtleStartingPositionCalculator() {
-        return new FractalBinaryTreeStartingPositionCalculator();
+    public String draw(int numberOfRecursions) {
+        return delegate.draw(numberOfRecursions);
     }
 }
