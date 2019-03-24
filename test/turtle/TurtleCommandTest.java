@@ -12,7 +12,7 @@ import turtlecommands.PushRecursionCommand;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class TurtleTest {
+public class TurtleCommandTest {
     @Test
     public void startsMiddleBottomOfCanvasFacingNorthForMaxSize5() {
         Canvas canvas = new Canvas(5);
@@ -39,7 +39,7 @@ public class TurtleTest {
     public void executingLineCommandDrawsForwardsOnTheCanvas() {
         Canvas turtleCanvas = new Canvas(3);
         Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
-        turtle.execute(new LineCommand());
+        new LineCommand().executeOn(turtle);
 
         String canvas = turtleCanvas.draw();
         assertThat(canvas, equalTo(Arrows.NORTH + "\n"));
@@ -49,8 +49,8 @@ public class TurtleTest {
     public void executingPushRecursionCommandTurnsLeft() {
         Canvas turtleCanvas = new Canvas(3);
         Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
-        turtle.execute(new PushRecursionCommand());
-        turtle.execute(new LineCommand());
+        new PushRecursionCommand().executeOn(turtle);
+        new LineCommand().executeOn(turtle);
 
         String canvas = turtleCanvas.draw();
         assertThat(canvas, equalTo(Arrows.NORTH_WEST + " \n " + Arrows.NORTH + "\n"));
@@ -60,10 +60,11 @@ public class TurtleTest {
     public void executingPushAndPopCommandsRecursesTheTurtlePosition() {
         Canvas turtleCanvas = new Canvas(3);
         Turtle turtle = new Turtle(turtleCanvas, new FractalBinaryTreeStartingPositionCalculator());
-        turtle.execute(new PushRecursionCommand());
-        turtle.execute(new LineCommand());
-        turtle.execute(new PopRecursionCommand());
-        turtle.execute(new LineCommand());
+
+        new PushRecursionCommand().executeOn(turtle);
+        new LineCommand().executeOn(turtle);
+        new PopRecursionCommand().executeOn(turtle);
+        new LineCommand().executeOn(turtle);
 
         String canvas = turtleCanvas.draw();
         assertThat(canvas, equalTo(Arrows.NORTH_WEST + " " + Arrows.NORTH_EAST + "\n " + Arrows.NORTH + " \n"));

@@ -4,7 +4,6 @@ import canvas.Canvas;
 import coordination.Direction;
 import coordination.North;
 import coordination.Position;
-import turtlecommands.TurtleCommand;
 
 public class Turtle {
     private Canvas canvas;
@@ -17,10 +16,6 @@ public class Turtle {
         this.position = turtleStartingPositionCalculator.startingPosition(canvas);
         this.direction = new North();
         this.stateStack = new TurtleStateStack();
-    }
-
-    public void execute(TurtleCommand command) {
-        command.transform(this);
     }
 
     public void drawForward() {

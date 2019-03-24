@@ -3,5 +3,5 @@ package turtlecommands;
 import turtle.Turtle;
 
 public interface TurtleCommand {
-    void transform(Turtle turtle);
+    void executeOn(Turtle turtle);
 }

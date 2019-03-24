@@ -27,7 +27,7 @@ public class InterpretedLSystem implements LSystem {
         Canvas canvas = new Canvas(canvasSize);
         Turtle turtle = new Turtle(canvas, turtleStartingPositionCalculator);
         for (TurtleCommand command : commands.instructions()) {
-            turtle.execute(command);
+            command.executeOn(turtle);
         }
 
         return canvas.draw();

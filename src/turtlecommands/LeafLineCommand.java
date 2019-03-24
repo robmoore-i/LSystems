@@ -4,7 +4,7 @@ import turtle.Turtle;
 
 public class LeafLineCommand implements TurtleCommand {
     @Override
-    public void transform(Turtle turtle) {
+    public void executeOn(Turtle turtle) {
         turtle.drawForward();
     }
 
