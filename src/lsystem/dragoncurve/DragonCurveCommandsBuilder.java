@@ -1,28 +1,32 @@
 package lsystem.dragoncurve;
 
-import lsystem.IterativeCommandsBuilder;
+import lsystem.LSystemCommandsBuilder;
 
-public class DragonCurveCommandsBuilder extends IterativeCommandsBuilder {
+public class DragonCurveCommandsBuilder implements LSystemCommandsBuilder {
     private String string;
 
     @Override
-    public String axiom() {
-        return "FX";
-    }
+    public String withNumberOfRecursions(int numberOfRecursions) {
+        String string = "FX";
 
-    @Override
-    public String applyRecursionRules(char c) {
-        if (c == 'X') {
-            return "X+YF+";
-        } else if (c == 'Y') {
-            return "-FX-Y";
-        } else {
-            return String.valueOf(c);
+        for (int i = 0; i < numberOfRecursions; i++) {
+            StringBuilder nextIteration = new StringBuilder();
+
+            for (char c : string.toCharArray()) {
+                String str;
+                if (c == 'X') {
+                    str = "X+YF+";
+                } else if (c == 'Y') {
+                    str = "-FX-Y";
+                } else {
+                    str = String.valueOf(c);
+                }
+                nextIteration.append(str);
+            }
+
+            string = nextIteration.toString();
         }
-    }
 
-    @Override
-    public String stripScaffolding(String string) {
         this.string = string;
         return string.replace("X", "").replace("Y", "");
     }

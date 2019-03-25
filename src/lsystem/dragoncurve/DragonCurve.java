@@ -1,20 +1,26 @@
 package lsystem.dragoncurve;
 
-import lsystem.InterpretedLSystem;
+import canvas.Canvas;
 import lsystem.LSystem;
+import turtle.Turtle;
+import turtlecommands.TurtleCommand;
+import turtlecommands.TurtleCommands;
 
 public class DragonCurve implements LSystem {
-    private InterpretedLSystem delegate;
-
-    public DragonCurve() {
-        this.delegate = new InterpretedLSystem(
-                new DragonCurveCommandsBuilder(),
-                new DragonCurveCommandInterpreter(),
-                new DragonCurveStartingPositionCalculator());
-    }
-
     @Override
     public String draw(int numberOfRecursions) {
-        return delegate.draw(numberOfRecursions);
+        String input = new DragonCurveCommandsBuilder().withNumberOfRecursions(numberOfRecursions);
+        TurtleCommands commands = new TurtleCommands(input.toCharArray(), new DragonCurveCommandInterpreter());
+        Canvas canvas = new Canvas(upperBoundOfRequiredCanvasSize(commands));
+        Turtle turtle = new Turtle(canvas, new DragonCurveStartingPositionCalculator().startingPosition(canvas));
+        for (TurtleCommand command : commands.instructions()) {
+            command.executeOn(turtle);
+        }
+
+        return canvas.draw();
+    }
+
+    private int upperBoundOfRequiredCanvasSize(TurtleCommands commands) {
+        return Math.max(3, commands.countMovementInstructions());
     }
 }

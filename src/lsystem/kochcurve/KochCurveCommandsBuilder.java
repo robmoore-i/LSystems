@@ -1,24 +1,29 @@
 package lsystem.kochcurve;
 
-import lsystem.IterativeCommandsBuilder;
+import lsystem.LSystemCommandsBuilder;
 
-public class KochCurveCommandsBuilder extends IterativeCommandsBuilder {
+public class KochCurveCommandsBuilder implements LSystemCommandsBuilder {
     @Override
-    public String axiom() {
-        return "F";
-    }
+    public String withNumberOfRecursions(int numberOfRecursions) {
+        String string = "F";
 
-    @Override
-    public String applyRecursionRules(char c) {
-        if (c == 'F') {
-            return "F+F-F-F+F";
-        } else {
-            return String.valueOf(c);
+        for (int i = 0; i < numberOfRecursions; i++) {
+            StringBuilder nextIteration = new StringBuilder();
+
+            for (char c : string.toCharArray()) {
+                String result;
+                if (c == 'F') {
+                    result = "F+F-F-F+F";
+                } else {
+                    result = String.valueOf(c);
+                }
+                String str = result;
+                nextIteration.append(str);
+            }
+
+            string = nextIteration.toString();
         }
-    }
 
-    @Override
-    public String stripScaffolding(String string) {
         return string;
     }
 }
