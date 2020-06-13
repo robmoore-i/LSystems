@@ -6,10 +6,10 @@ import coordination.North;
 import coordination.Position;
 
 public class Turtle {
-    private Canvas canvas;
+    private final Canvas canvas;
     private Position position;
     private Direction direction;
-    private TurtleStateStack stateStack;
+    private final TurtleStateStack stateStack;
 
     public Turtle(Canvas canvas, Position startingPosition) {
         this.canvas = canvas;

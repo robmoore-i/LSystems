@@ -4,7 +4,7 @@ import lsystem.InterpretedLSystem;
 import lsystem.LSystem;
 
 public class KochCurve implements LSystem {
-    private InterpretedLSystem delegate;
+    private final InterpretedLSystem delegate;
 
     public KochCurve() {
         this.delegate = new InterpretedLSystem(

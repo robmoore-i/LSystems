@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TurtleCommands {
     private final char[] chars;
-    private TurtleCommandInterpreter turtleCommandInterpreter;
+    private final TurtleCommandInterpreter turtleCommandInterpreter;
     private final List<TurtleCommand> commands;
 
     public TurtleCommands(char[] chars, TurtleCommandInterpreter turtleCommandInterpreter) {

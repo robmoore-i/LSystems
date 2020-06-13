@@ -7,7 +7,7 @@ import java.util.Optional;
 
 @SuppressWarnings("OptionalGetWithoutIsPresent")
 public class CanvasRows {
-    private String[] rows;
+    private final String[] rows;
 
     public CanvasRows(ArrayList<String> rows) {
         this.rows = toArray(rows);

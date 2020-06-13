@@ -4,7 +4,7 @@ import lsystem.InterpretedLSystem;
 import lsystem.LSystem;
 
 public class DragonCurve implements LSystem {
-    private InterpretedLSystem delegate;
+    private final InterpretedLSystem delegate;
 
     public DragonCurve() {
         this.delegate = new InterpretedLSystem(

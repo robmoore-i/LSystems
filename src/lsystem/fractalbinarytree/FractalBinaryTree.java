@@ -4,7 +4,7 @@ import lsystem.InterpretedLSystem;
 import lsystem.LSystem;
 
 public class FractalBinaryTree implements LSystem {
-    private InterpretedLSystem delegate;
+    private final InterpretedLSystem delegate;
 
     public FractalBinaryTree() {
         this.delegate = new InterpretedLSystem(
