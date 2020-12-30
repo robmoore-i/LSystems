@@ -11,13 +11,7 @@ public class Canvas {
 
     public Canvas(int size) {
         this.size = size;
-
-        StringBuilder rowBuilder = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            rowBuilder.append(" ");
-        }
-        String emptyRow = rowBuilder.toString();
-
+        String emptyRow = " ".repeat(Math.max(0, size));
         ArrayList<String> rows = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             rows.add(emptyRow);

@@ -18,10 +18,7 @@ public class TurtleCommandTest {
         Canvas canvas = new Canvas(5);
         Turtle turtle = new Turtle(canvas, new Position(2, 0));
 
-        TurtleState state = turtle.state();
-        assertThat(state.position.x, equalTo(2));
-        assertThat(state.position.y, equalTo(0));
-        assertThat(state.direction, equalTo(new North()));
+        assertThat(turtle.state(), equalTo(new TurtleState(new Position(2, 0), new North())));
     }
 
     @Test
@@ -29,10 +26,7 @@ public class TurtleCommandTest {
         Canvas canvas = new Canvas(3);
         Turtle turtle = new Turtle(canvas, new Position(1, 0));
 
-        TurtleState state = turtle.state();
-        assertThat(state.position.x, equalTo(1));
-        assertThat(state.position.y, equalTo(0));
-        assertThat(state.direction, equalTo(new North()));
+        assertThat(turtle.state(), equalTo(new TurtleState(new Position(1, 0), new North())));
     }
 
     @Test
