@@ -5,7 +5,7 @@ import lsystem.fractalbinarytree.FractalBinaryTree;
 public class FractalBinaryTreeApprovalTest extends LSystemApprovalTest {
     @Override
     String approvalFileUri() {
-        return "testfiles/fractalBinaryTree5Recursions.txt";
+        return "src/test/resources/fractalBinaryTree5Recursions.txt";
     }
 
     @Override

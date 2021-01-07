@@ -5,7 +5,7 @@ import lsystem.kochcurve.KochCurve;
 public class KochCurveApprovalTest extends LSystemApprovalTest {
     @Override
     String approvalFileUri() {
-        return "testfiles/kochcurve4Recursions.txt";
+        return "src/test/resources/kochcurve4Recursions.txt";
     }
 
     @Override
