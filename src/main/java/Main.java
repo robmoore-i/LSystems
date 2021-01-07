@@ -1,17 +1,15 @@
+import lsystem.drawing.LSystemDrawer;
 import lsystem.dragoncurve.DragonCurve;
+import lsystem.drawing.Utf8PrintStream;
 import lsystem.fractalbinarytree.FractalBinaryTree;
 import lsystem.kochcurve.KochCurve;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new DragonCurve().draw(10));
+        LSystemDrawer drawer = new LSystemDrawer(new Utf8PrintStream(System.out));
 
-        System.out.println("\n\n\n\n");
-
-        System.out.println(new FractalBinaryTree().draw(5));
-
-        System.out.println("\n\n\n\n");
-
-        System.out.println(new KochCurve().draw(3));
+        drawer.draw(new DragonCurve(), 10);
+        drawer.draw(new FractalBinaryTree(), 5);
+        drawer.draw(new KochCurve(), 3);
     }
 }
